@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Serviço - Prime Studios</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 320px;
+            background-color: #111;
+            padding: 30px 20px;
+            border-right: 1px solid #222;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .back-home {
+            display: flex;
+            align-items: center;
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 40px;
+            transition: color 0.3s;
+        }
+
+        .back-home:hover {
+            color: #fff;
+        }
+
+        .back-home::before {
+            content: "🏠";
+            margin-right: 8px;
+        }
+
+        .nav-title {
+            color: #666;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .nav-list {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 8px;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 12px 16px;
+            color: #999;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .nav-link:hover {
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        .nav-link.active {
+            background-color: #00ff88;
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 320px;
+            flex: 1;
+            padding: 60px 80px;
+            max-width: 1200px;
+        }
+
+        .header-info {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #999;
+            margin-bottom: 60px;
+            line-height: 1.8;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            scroll-margin-top: 30px;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+
+        h2::before {
+            content: attr(data-number) ". ";
+            color: #00ff88;
+        }
+
+        .section-content {
+            font-size: 16px;
+            color: #b0b0b0;
+            line-height: 1.9;
+        }
+
+        .section-content strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 280px;
+            }
+
+            .main-content {
+                margin-left: 280px;
+                padding: 40px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #222;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #111;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <a href="#" class="back-home">Voltar ao Início</a>
+            
+            <div class="nav-title">Navegação</div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#quem-somos" class="nav-link active">1. Quem somos?</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#aceitacao" class="nav-link">2. Aceitação dos Termos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#condicoes" class="nav-link">3. Condições de Uso</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contas" class="nav-link">4. Contas e Assinaturas</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#servicos" class="nav-link">5. Serviços de Aluguel de Bots</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#pagamentos" class="nav-link">6. Pagamentos e Taxas</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#propriedade" class="nav-link">7. Propriedade Intelectual</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#limitacao" class="nav-link">8. Limitação de Responsabilidade</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#quebra" class="nav-link">9. Quebra de Termos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#alteracoes" class="nav-link">10. Alterações nos Termos</a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header-info">Atualizado em 26/01/2026 por Prime Studios</div>
+            
+            <h1>Termos de Serviço</h1>
+            
+            <p class="subtitle">
+                Estes documentos regem o uso da plataforma Prime Studios. Ao utilizar nossos serviços, você concorda com as condições aqui descritas.
+            </p>
+
+            <!-- Section 1 -->
+            <section id="quem-somos" class="section">
+                <h2 data-number="1">Quem somos?</h2>
+                <div class="section-content">
+                    <p>A <strong>Prime Studios</strong> é uma empresa inovadora especializada em soluções digitais avançadas, oferecendo ferramentas integradas ao Discord, aluguel de bots e automação inteligente para comunidades online. Nosso compromisso é proporcionar aos nossos clientes soluções digitais de alta qualidade, seguras e eficazes.</p>
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section id="aceitacao" class="section">
+                <h2 data-number="2">Aceitação dos Termos</h2>
+                <div class="section-content">
+                    <p>Ao acessar e utilizar os serviços da Prime Studios, você concorda em estar vinculado a estes Termos de Serviço. Se você não concordar com qualquer parte destes termos, não utilize nossos serviços.</p>
+                    <br>
+                    <p>Estes termos aplicam-se a todos os usuários da plataforma, incluindo visitantes, clientes registrados e assinantes de serviços premium.</p>
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section id="condicoes" class="section">
+                <h2 data-number="3">Condições de Uso</h2>
+                <div class="section-content">
+                    <p>Você concorda em usar nossos serviços apenas para fins legais e de acordo com estes Termos. É proibido:</p>
+                    <br>
+                    <p>• Usar os serviços de maneira que viole qualquer lei ou regulamento aplicável<br>
+                    • Transmitir material ofensivo, difamatório ou ilegal<br>
+                    • Tentar obter acesso não autorizado a qualquer parte da plataforma<br>
+                    • Interferir ou interromper os serviços ou servidores conectados à plataforma<br>
+                    • Usar bots ou automações de forma maliciosa ou spam</p>
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section id="contas" class="section">
+                <h2 data-number="4">Contas e Assinaturas</h2>
+                <div class="section-content">
+                    <p>Para acessar determinados recursos, você precisará criar uma conta. Você é responsável por manter a confidencialidade de suas credenciais de login e por todas as atividades que ocorram em sua conta.</p>
+                    <br>
+                    <p>As assinaturas são renovadas automaticamente, a menos que canceladas antes do término do período de cobrança. Você pode cancelar sua assinatura a qualquer momento através do painel de controle.</p>
+                </div>
+            </section>
+
+            <!-- Section 5 -->
+            <section id="servicos" class="section">
+                <h2 data-number="5">Serviços de Aluguel de Bots</h2>
+                <div class="section-content">
+                    <p>Nossos serviços de aluguel de bots para Discord são fornecidos "como estão". Embora nos esforcemos para garantir uptime de 99.9%, não podemos garantir disponibilidade ininterrupta.</p>
+                    <br>
+                    <p>Você é responsável por configurar e usar os bots de acordo com as políticas do Discord e estas condições. O uso inadequado pode resultar na suspensão do serviço sem reembolso.</p>
+                </div>
+            </section>
+
+            <!-- Section 6 -->
+            <section id="pagamentos" class="section">
+                <h2 data-number="6">Pagamentos e Taxas</h2>
+                <div class="section-content">
+                    <p>Todos os pagamentos são processados através de provedores de pagamento seguros. Aceitamos cartões de crédito, PIX e outros métodos listados na plataforma.</p>
+                    <br>
+                    <p>Reembolsos estão sujeitos à nossa política de reembolso e serão concedidos apenas em circunstâncias específicas, como falha técnica comprovada de nossa parte dentro de 7 dias após a compra.</p>
+                </div>
+            </section>
+
+            <!-- Section 7 -->
+            <section id="propriedade" class="section">
+                <h2 data-number="7">Propriedade Intelectual</h2>
+                <div class="section-content">
+                    <p>Todo o conteúdo presente na plataforma Prime Studios, incluindo mas não limitado a textos, gráficos, logos, código-fonte e software, é propriedade da Prime Studios e está protegido por leis de direitos autorais.</p>
+                    <br>
+                    <p>Você não pode copiar, modificar, distribuir ou reproduzir qualquer parte de nosso conteúdo sem permissão expressa por escrito.</p>
+                </div>
+            </section>
+
+            <!-- Section 8 -->
+            <section id="limitacao" class="section">
+                <h2 data-number="8">Limitação de Responsabilidade</h2>
+                <div class="section-content">
+                    <p>A Prime Studios não será responsável por quaisquer danos indiretos, incidentais ou consequenciais decorrentes do uso ou incapacidade de usar nossos serviços.</p>
+                    <br>
+                    <p>Nossa responsabilidade máxima será limitada ao valor pago por você nos últimos 12 meses de utilização dos serviços.</p>
+                </div>
+            </section>
+
+            <!-- Section 9 -->
+            <section id="quebra" class="section">
+                <h2 data-number="9">Quebra de Termos</h2>
+                <div class="section-content">
+                    <p>Reservamo-nos o direito de suspender ou encerrar sua conta imediatamente, sem aviso prévio, se detectarmos violação destes Termos de Serviço.</p>
+                    <br>
+                    <p>Em caso de quebra de termos, você não terá direito a reembolso de valores pagos e poderá ser responsabilizado por danos causados.</p>
+                </div>
+            </section>
+
+            <!-- Section 10 -->
+            <section id="alteracoes" class="section">
+                <h2 data-number="10">Alterações nos Termos</h2>
+                <div class="section-content">
+                    <p>Podemos modificar estes Termos de Serviço a qualquer momento. Notificaremos os usuários sobre mudanças significativas através de email ou aviso na plataforma.</p>
+                    <br>
+                    <p>O uso continuado dos serviços após alterações constitui aceitação dos novos termos. Recomendamos revisar esta página periodicamente.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Smooth scroll para navegação
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active de todos os links
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                
+                // Adiciona active ao link clicado
+                this.classList.add('active');
+                
+                // Scroll suave para a seção
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Atualiza link ativo ao rolar a página
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
