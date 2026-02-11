@@ -3,377 +3,719 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Termos de Serviço - Prime Studios</title>
+    <title>Prime Studios - Soluções Digitais Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --red-primary: #FF0000;
+            --red-dark: #CC0000;
+            --red-gradient-start: #FF0000;
+            --red-gradient-end: #8B0000;
+            --black-primary: #0A0A0A;
+            --black-secondary: #1A1A1A;
+            --black-tertiary: #2A2A2A;
+            --gray-text: #CCCCCC;
+            --gray-muted: #888888;
+            --white: #FFFFFF;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #0a0a0a;
-            color: #e0e0e0;
-            line-height: 1.6;
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--black-primary);
+            color: var(--white);
+            overflow-x: hidden;
         }
-
-        .container {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* Sidebar */
+        
+        /* Sidebar Navigation */
         .sidebar {
-            width: 320px;
-            background-color: #111;
-            padding: 30px 20px;
-            border-right: 1px solid #222;
             position: fixed;
+            left: 0;
+            top: 0;
+            width: 250px;
             height: 100vh;
+            background: linear-gradient(180deg, var(--black-secondary) 0%, var(--black-primary) 100%);
+            border-right: 1px solid var(--black-tertiary);
+            z-index: 1000;
+            padding: 2rem 0;
             overflow-y: auto;
         }
-
-        .back-home {
-            display: flex;
-            align-items: center;
-            color: #999;
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 40px;
-            transition: color 0.3s;
+        
+        .logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2rem;
+            color: var(--red-primary);
+            letter-spacing: 2px;
+            padding: 0 2rem 2rem 2rem;
+            border-bottom: 1px solid var(--black-tertiary);
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
         }
-
-        .back-home:hover {
-            color: #fff;
-        }
-
-        .back-home::before {
-            content: "🏠";
-            margin-right: 8px;
-        }
-
+        
         .nav-title {
-            color: #666;
-            font-size: 11px;
-            font-weight: 600;
+            font-size: 0.75rem;
+            color: var(--gray-muted);
+            padding: 2rem 2rem 1rem 2rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+            letter-spacing: 2px;
+            font-weight: 600;
         }
-
-        .nav-list {
+        
+        .nav-links {
             list-style: none;
         }
-
-        .nav-item {
-            margin-bottom: 8px;
+        
+        .nav-links li {
+            margin: 0;
         }
-
-        .nav-link {
+        
+        .nav-links a {
             display: block;
-            padding: 12px 16px;
-            color: #999;
+            color: var(--gray-text);
             text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s;
-            font-size: 14px;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
         }
-
-        .nav-link:hover {
-            background-color: #1a1a1a;
-            color: #fff;
+        
+        .nav-links a:hover {
+            background: linear-gradient(90deg, rgba(255, 0, 0, 0.1) 0%, transparent 100%);
+            color: var(--white);
+            border-left-color: var(--red-primary);
         }
-
-        .nav-link.active {
-            background-color: #00ff88;
-            color: #000;
-            font-weight: 600;
-        }
-
+        
         /* Main Content */
         .main-content {
-            margin-left: 320px;
-            flex: 1;
-            padding: 60px 80px;
+            margin-left: 250px;
+            min-height: 100vh;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--red-gradient-start) 0%, var(--red-gradient-end) 100%);
+            padding: 4rem 3rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(255, 0, 0, 0.3);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
             max-width: 1200px;
         }
-
-        .header-info {
-            color: #666;
-            font-size: 13px;
-            margin-bottom: 20px;
+        
+        .hero h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+            animation: fadeInUp 0.8s ease;
         }
-
-        h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: #fff;
+        
+        .hero p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            font-weight: 400;
+            max-width: 800px;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
         }
-
-        .subtitle {
-            font-size: 16px;
-            color: #999;
-            margin-bottom: 60px;
-            line-height: 1.8;
+        
+        .update-info {
+            padding: 0 3rem;
+            margin-bottom: 3rem;
+            font-size: 0.9rem;
+            color: var(--gray-muted);
+            animation: fadeIn 1s ease 0.4s backwards;
         }
-
+        
+        /* Section Styling */
         .section {
-            margin-bottom: 60px;
-            scroll-margin-top: 30px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease backwards;
         }
-
-        h2 {
-            font-size: 32px;
+        
+        .section-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+        
+        .section-title .number {
+            color: var(--red-primary);
+            margin-right: 0.5rem;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+        
+        .content-box {
+            background: linear-gradient(135deg, var(--black-secondary) 0%, var(--black-tertiary) 100%);
+            border: 1px solid var(--black-tertiary);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .content-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(255, 0, 0, 0.2);
+        }
+        
+        .content-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray-text);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        
+        /* Mission Box */
+        .mission-box {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(139, 0, 0, 0.1) 100%);
+            border-left: 4px solid var(--red-primary);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .mission-title {
+            color: var(--red-primary);
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 25px;
-            color: #fff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-
-        h2::before {
-            content: attr(data-number) ". ";
-            color: #00ff88;
+        
+        .mission-title::before {
+            content: '🎯';
+            font-size: 1.5rem;
         }
-
-        .section-content {
-            font-size: 16px;
-            color: #b0b0b0;
-            line-height: 1.9;
+        
+        .mission-box p {
+            color: var(--gray-text);
+            line-height: 1.7;
+            margin: 0;
         }
-
-        .section-content strong {
-            color: #fff;
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background: linear-gradient(135deg, var(--black-secondary) 0%, var(--black-tertiary) 100%);
+            border: 1px solid var(--black-tertiary);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--red-primary) 0%, transparent 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(255, 0, 0, 0.3);
+            border-color: var(--red-primary);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
             font-weight: 600;
         }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .sidebar {
-                width: 280px;
+        
+        .service-card p {
+            color: var(--gray-text);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        
+        /* Terms Section */
+        .terms-box {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.05) 0%, rgba(139, 0, 0, 0.05) 100%);
+            border: 2px solid var(--red-primary);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+        }
+        
+        .terms-box h3 {
+            color: var(--red-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .terms-box h3::before {
+            content: '⚠️';
+            font-size: 2rem;
+        }
+        
+        .terms-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .terms-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+            color: var(--gray-text);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .terms-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .terms-list li::before {
+            content: '▸';
+            color: var(--red-primary);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .terms-highlight {
+            background: rgba(255, 0, 0, 0.1);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--red-primary);
+            margin: 1.5rem 0;
+        }
+        
+        .terms-highlight strong {
+            color: var(--red-primary);
+            font-size: 1.2rem;
+        }
+        
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .value-item {
+            background: linear-gradient(135deg, var(--black-secondary) 0%, var(--black-tertiary) 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--red-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .value-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 4px 20px rgba(255, 0, 0, 0.2);
+        }
+        
+        .value-item h4 {
+            color: var(--red-primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .value-item p {
+            color: var(--gray-text);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        /* Contact Section */
+        .contact-info {
+            background: linear-gradient(135deg, var(--black-secondary) 0%, var(--black-tertiary) 100%);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--black-tertiary);
+            margin-top: 2rem;
+        }
+        
+        .contact-info h3 {
+            color: var(--red-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .contact-info p {
+            color: var(--gray-text);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--red-primary) 0%, var(--red-dark) 100%);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+        }
+        
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.5);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--black-secondary);
+            padding: 2rem 3rem;
+            text-align: center;
+            border-top: 1px solid var(--black-tertiary);
+            color: var(--gray-muted);
+            font-size: 0.95rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-
-            .main-content {
-                margin-left: 280px;
-                padding: 40px 40px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
             .sidebar {
-                position: relative;
+                width: 200px;
+            }
+            
+            .main-content {
+                margin-left: 200px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .sidebar {
                 width: 100%;
                 height: auto;
-                border-right: none;
-                border-bottom: 1px solid #222;
+                position: relative;
             }
-
+            
             .main-content {
                 margin-left: 0;
-                padding: 30px 20px;
             }
-
-            h1 {
-                font-size: 36px;
+            
+            .hero {
+                padding: 3rem 1.5rem;
             }
-
-            h2 {
-                font-size: 24px;
+            
+            .hero h1 {
+                font-size: 2rem;
             }
         }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        
+        /* Scroll Animations */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
-
-        ::-webkit-scrollbar-track {
-            background: #111;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #444;
+        
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <a href="#" class="back-home">Voltar ao Início</a>
-            
-            <div class="nav-title">Navegação</div>
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a href="#quem-somos" class="nav-link active">1. Quem somos?</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#aceitacao" class="nav-link">2. Aceitação dos Termos</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#condicoes" class="nav-link">3. Condições de Uso</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contas" class="nav-link">4. Contas e Assinaturas</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#servicos" class="nav-link">5. Serviços de Aluguel de Bots</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pagamentos" class="nav-link">6. Pagamentos e Taxas</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#propriedade" class="nav-link">7. Propriedade Intelectual</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#limitacao" class="nav-link">8. Limitação de Responsabilidade</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#quebra" class="nav-link">9. Quebra de Termos</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#alteracoes" class="nav-link">10. Alterações nos Termos</a>
-                </li>
-            </ul>
-        </aside>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="logo">PRIME STUDIOS</div>
+        <div class="nav-title">Navegação</div>
+        <ul class="nav-links">
+            <li><a href="#quem-somos">1. Quem somos?</a></li>
+            <li><a href="#servicos">2. Nossos Serviços</a></li>
+            <li><a href="#diferenciais">3. Diferenciais</a></li>
+            <li><a href="#valores">4. Nossos Valores</a></li>
+            <li><a href="#termos">5. Termos e Condições</a></li>
+            <li><a href="#contato">6. Entre em Contato</a></li>
+        </ul>
+    </aside>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="header-info">Atualizado em 26/01/2026 por Prime Studios</div>
-            
-            <h1>Termos de Serviço</h1>
-            
-            <p class="subtitle">
-                Estes documentos regem o uso da plataforma Prime Studios. Ao utilizar nossos serviços, você concorda com as condições aqui descritas.
-            </p>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Bem-vindo à Prime Studios</h1>
+                <p>Sua loja premium de soluções digitais para Discord, FiveM e muito mais. Qualidade, respeito e profissionalismo em cada projeto.</p>
+            </div>
+        </section>
 
-            <!-- Section 1 -->
-            <section id="quem-somos" class="section">
-                <h2 data-number="1">Quem somos?</h2>
-                <div class="section-content">
-                    <p>A <strong>Prime Studios</strong> é uma empresa inovadora especializada em soluções digitais avançadas, oferecendo ferramentas integradas ao Discord, aluguel de bots e automação inteligente para comunidades online. Nosso compromisso é proporcionar aos nossos clientes soluções digitais de alta qualidade, seguras e eficazes.</p>
+        <div class="update-info">
+            Atualizado em 11/02/2026 por Prime Studios
+        </div>
+
+        <!-- Quem Somos Section -->
+        <section id="quem-somos" class="section fade-in-section">
+            <h2 class="section-title"><span class="number">1.</span> Quem somos?</h2>
+            <div class="content-box">
+                <p>A <strong>Prime Studios</strong> é uma loja inovadora especializada em soluções digitais de alta qualidade para comunidades online. Oferecemos ferramentas integradas ao Discord, design profissional e recursos personalizados para servidores FiveM.</p>
+                
+                <p>Nosso compromisso é proporcionar aos nossos clientes produtos digitais seguros, eficazes e visualmente impressionantes. Trabalhamos com profissionalismo, respeito e dedicação para garantir a satisfação total de cada cliente.</p>
+                
+                <div class="mission-box">
+                    <div class="mission-title">Nossa Missão</div>
+                    <p>Fornecer soluções digitais premium que elevam a experiência de comunidades online, combinando tecnologia de ponta com design excepcional e atendimento humanizado.</p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Section 2 -->
-            <section id="aceitacao" class="section">
-                <h2 data-number="2">Aceitação dos Termos</h2>
-                <div class="section-content">
-                    <p>Ao acessar e utilizar os serviços da Prime Studios, você concorda em estar vinculado a estes Termos de Serviço. Se você não concordar com qualquer parte destes termos, não utilize nossos serviços.</p>
-                    <br>
-                    <p>Estes termos aplicam-se a todos os usuários da plataforma, incluindo visitantes, clientes registrados e assinantes de serviços premium.</p>
+        <!-- Serviços Section -->
+        <section id="servicos" class="section fade-in-section">
+            <h2 class="section-title"><span class="number">2.</span> Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Bots do Discord</h3>
+                    <p>Bots personalizados com funcionalidades avançadas, sistemas de moderação, economia, música e muito mais. Desenvolvidos sob medida para seu servidor.</p>
                 </div>
-            </section>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Banners & Logos</h3>
+                    <p>Design gráfico profissional para identidade visual de servidores, canais e comunidades. Criações únicas que refletem sua marca.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">👕</div>
+                    <h3>Roupas para FiveM</h3>
+                    <p>Vestimentas exclusivas e personalizadas para servidores FiveM/GTA RP. Modelos de alta qualidade otimizados para performance.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎫</div>
+                    <h3>Projetos Sob Encomenda</h3>
+                    <p>Desenvolvimento de projetos especiais via sistema de tickets. Scripts, websites, sistemas customizados e outras soluções digitais.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Scripts e Recursos</h3>
+                    <p>Scripts personalizados para Discord, FiveM e outras plataformas. Sistemas completos desenvolvidos com código limpo e documentado.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💎</div>
+                    <h3>Pacotes Premium</h3>
+                    <p>Pacotes completos combinando múltiplos serviços com descontos especiais. A solução ideal para projetos maiores.</p>
+                </div>
+            </div>
+        </section>
 
-            <!-- Section 3 -->
-            <section id="condicoes" class="section">
-                <h2 data-number="3">Condições de Uso</h2>
-                <div class="section-content">
-                    <p>Você concorda em usar nossos serviços apenas para fins legais e de acordo com estes Termos. É proibido:</p>
-                    <br>
-                    <p>• Usar os serviços de maneira que viole qualquer lei ou regulamento aplicável<br>
-                    • Transmitir material ofensivo, difamatório ou ilegal<br>
-                    • Tentar obter acesso não autorizado a qualquer parte da plataforma<br>
-                    • Interferir ou interromper os serviços ou servidores conectados à plataforma<br>
-                    • Usar bots ou automações de forma maliciosa ou spam</p>
-                </div>
-            </section>
+        <!-- Diferenciais Section -->
+        <section id="diferenciais" class="section fade-in-section">
+            <h2 class="section-title"><span class="number">3.</span> Diferenciais</h2>
+            <div class="content-box">
+                <p><strong>Qualidade Garantida:</strong> Todos os nossos produtos passam por rigorosos testes de qualidade antes da entrega. Utilizamos as melhores práticas de desenvolvimento e design.</p>
+                
+                <p><strong>Atendimento Personalizado:</strong> Sistema de tickets dedicado para cada cliente. Suporte técnico ágil e humanizado durante todo o processo.</p>
+                
+                <p><strong>Entrega Rápida:</strong> Prazos claros e cumpridos. Trabalhamos com eficiência sem comprometer a qualidade do produto final.</p>
+                
+                <p><strong>Segurança e Confiabilidade:</strong> Produtos desenvolvidos com segurança em mente. Código otimizado e livre de vulnerabilidades.</p>
+                
+                <p><strong>Inovação Constante:</strong> Sempre atualizados com as últimas tecnologias e tendências do mercado digital.</p>
+            </div>
+        </section>
 
-            <!-- Section 4 -->
-            <section id="contas" class="section">
-                <h2 data-number="4">Contas e Assinaturas</h2>
-                <div class="section-content">
-                    <p>Para acessar determinados recursos, você precisará criar uma conta. Você é responsável por manter a confidencialidade de suas credenciais de login e por todas as atividades que ocorram em sua conta.</p>
-                    <br>
-                    <p>As assinaturas são renovadas automaticamente, a menos que canceladas antes do término do período de cobrança. Você pode cancelar sua assinatura a qualquer momento através do painel de controle.</p>
+        <!-- Valores Section -->
+        <section id="valores" class="section fade-in-section">
+            <h2 class="section-title"><span class="number">4.</span> Nossos Valores</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <h4>Excelência</h4>
+                    <p>Buscamos a perfeição em cada projeto, entregando sempre o melhor resultado possível.</p>
                 </div>
-            </section>
+                
+                <div class="value-item">
+                    <h4>Transparência</h4>
+                    <p>Comunicação clara e honesta com nossos clientes em todas as etapas.</p>
+                </div>
+                
+                <div class="value-item">
+                    <h4>Comprometimento</h4>
+                    <p>Dedicação total à satisfação do cliente e ao cumprimento de prazos.</p>
+                </div>
+                
+                <div class="value-item">
+                    <h4>Inovação</h4>
+                    <p>Sempre buscando novas tecnologias e métodos para melhorar nossos serviços.</p>
+                </div>
+                
+                <div class="value-item">
+                    <h4>Respeito</h4>
+                    <p>Tratamos cada cliente com dignidade e profissionalismo.</p>
+                </div>
+                
+                <div class="value-item">
+                    <h4>Segurança</h4>
+                    <p>Proteção de dados e privacidade dos clientes como prioridade máxima.</p>
+                </div>
+            </div>
+        </section>
 
-            <!-- Section 5 -->
-            <section id="servicos" class="section">
-                <h2 data-number="5">Serviços de Aluguel de Bots</h2>
-                <div class="section-content">
-                    <p>Nossos serviços de aluguel de bots para Discord são fornecidos "como estão". Embora nos esforcemos para garantir uptime de 99.9%, não podemos garantir disponibilidade ininterrupta.</p>
-                    <br>
-                    <p>Você é responsável por configurar e usar os bots de acordo com as políticas do Discord e estas condições. O uso inadequado pode resultar na suspensão do serviço sem reembolso.</p>
+        <!-- Termos e Condições Section -->
+        <section id="termos" class="section fade-in-section">
+            <h2 class="section-title"><span class="number">5.</span> Termos e Condições</h2>
+            <div class="terms-box">
+                <h3>Política de Compras e Reembolsos</h3>
+                
+                <div class="terms-highlight">
+                    <strong>ATENÇÃO:</strong> Ao realizar uma compra na Prime Studios, você concorda automaticamente com todos os termos e condições descritos abaixo. Leia atentamente antes de finalizar seu pedido.
                 </div>
-            </section>
+                
+                <ul class="terms-list">
+                    <li><strong>Produtos Digitais:</strong> Todos os produtos comercializados pela Prime Studios são digitais e entregues eletronicamente. Após a conclusão da compra, não há possibilidade de devolução física.</li>
+                    
+                    <li><strong>Política de Não Reembolso:</strong> Após a confirmação e processamento da compra, NÃO será concedido reembolso total ou parcial em nenhuma circunstância. Esta política se aplica a todos os produtos e serviços, incluindo bots, designs, roupas para FiveM, scripts e projetos customizados.</li>
+                    
+                    <li><strong>Entrega do Produto:</strong> Os produtos serão entregues no prazo acordado no momento da compra. Em caso de atraso justificado, o cliente será notificado com antecedência.</li>
+                    
+                    <li><strong>Garantia de Qualidade:</strong> Garantimos que todos os produtos entregues estão funcionais e conforme especificado. Caso haja problemas técnicos comprovados no produto entregue, oferecemos suporte para correção sem custos adicionais.</li>
+                    
+                    <li><strong>Modificações e Ajustes:</strong> Solicitações de modificação após a entrega do produto podem estar sujeitas a custos adicionais, dependendo da complexidade das alterações.</li>
+                    
+                    <li><strong>Projetos Sob Encomenda:</strong> Para projetos personalizados via ticket, um briefing detalhado será solicitado. Aprovações de etapas devem ser feitas em até 48 horas para manter o cronograma.</li>
+                    
+                    <li><strong>Direitos de Uso:</strong> O cliente adquire o direito de uso do produto, mas não os direitos autorais sobre o código-fonte ou design, salvo acordo específico por escrito.</li>
+                    
+                    <li><strong>Proibições:</strong> É expressamente proibida a revenda, redistribuição ou compartilhamento dos produtos adquiridos sem autorização prévia e por escrito da Prime Studios.</li>
+                    
+                    <li><strong>Suporte Técnico:</strong> Oferecemos suporte técnico gratuito por 30 dias após a entrega para esclarecimento de dúvidas e correção de bugs comprovados.</li>
+                    
+                    <li><strong>Privacidade e Dados:</strong> Respeitamos sua privacidade. Dados pessoais coletados durante a compra não serão compartilhados com terceiros.</li>
+                    
+                    <li><strong>Alterações nos Termos:</strong> A Prime Studios reserva-se o direito de alterar estes termos a qualquer momento. Alterações serão comunicadas através dos nossos canais oficiais.</li>
+                    
+                    <li><strong>Resolução de Conflitos:</strong> Em caso de disputas, buscamos sempre o diálogo. Questões não resolvidas serão tratadas conforme a legislação brasileira vigente.</li>
+                </ul>
+                
+                <div class="terms-highlight">
+                    <p><strong>Ao clicar em "Finalizar Compra" ou "Confirmar Pedido", você declara que leu, compreendeu e concorda integralmente com todos os termos e condições acima descritos, incluindo a política de não reembolso.</strong></p>
+                </div>
+            </div>
+        </section>
 
-            <!-- Section 6 -->
-            <section id="pagamentos" class="section">
-                <h2 data-number="6">Pagamentos e Taxas</h2>
-                <div class="section-content">
-                    <p>Todos os pagamentos são processados através de provedores de pagamento seguros. Aceitamos cartões de crédito, PIX e outros métodos listados na plataforma.</p>
-                    <br>
-                    <p>Reembolsos estão sujeitos à nossa política de reembolso e serão concedidos apenas em circunstâncias específicas, como falha técnica comprovada de nossa parte dentro de 7 dias após a compra.</p>
-                </div>
-            </section>
+        <!-- Contato Section -->
+        <section id="contato" class="section fade-in-section">
+            <h2 class="section-title"><span class="number">6.</span> Entre em Contato</h2>
+            <div class="contact-info">
+                <h3>Pronto para elevar seu projeto?</h3>
+                <p>Nossa equipe está pronta para transformar suas ideias em realidade. Entre em contato através do nosso sistema de tickets no Discord para discutir seu projeto e receber um orçamento personalizado.</p>
+                <p>Respondemos todos os tickets em até 24 horas. Para projetos urgentes, mencione no ticket e faremos o possível para priorizar seu atendimento.</p>
+                <a href="#" class="contact-button">Abrir Ticket no Discord</a>
+            </div>
+        </section>
 
-            <!-- Section 7 -->
-            <section id="propriedade" class="section">
-                <h2 data-number="7">Propriedade Intelectual</h2>
-                <div class="section-content">
-                    <p>Todo o conteúdo presente na plataforma Prime Studios, incluindo mas não limitado a textos, gráficos, logos, código-fonte e software, é propriedade da Prime Studios e está protegido por leis de direitos autorais.</p>
-                    <br>
-                    <p>Você não pode copiar, modificar, distribuir ou reproduzir qualquer parte de nosso conteúdo sem permissão expressa por escrito.</p>
-                </div>
-            </section>
-
-            <!-- Section 8 -->
-            <section id="limitacao" class="section">
-                <h2 data-number="8">Limitação de Responsabilidade</h2>
-                <div class="section-content">
-                    <p>A Prime Studios não será responsável por quaisquer danos indiretos, incidentais ou consequenciais decorrentes do uso ou incapacidade de usar nossos serviços.</p>
-                    <br>
-                    <p>Nossa responsabilidade máxima será limitada ao valor pago por você nos últimos 12 meses de utilização dos serviços.</p>
-                </div>
-            </section>
-
-            <!-- Section 9 -->
-            <section id="quebra" class="section">
-                <h2 data-number="9">Quebra de Termos</h2>
-                <div class="section-content">
-                    <p>Reservamo-nos o direito de suspender ou encerrar sua conta imediatamente, sem aviso prévio, se detectarmos violação destes Termos de Serviço.</p>
-                    <br>
-                    <p>Em caso de quebra de termos, você não terá direito a reembolso de valores pagos e poderá ser responsabilizado por danos causados.</p>
-                </div>
-            </section>
-
-            <!-- Section 10 -->
-            <section id="alteracoes" class="section">
-                <h2 data-number="10">Alterações nos Termos</h2>
-                <div class="section-content">
-                    <p>Podemos modificar estes Termos de Serviço a qualquer momento. Notificaremos os usuários sobre mudanças significativas através de email ou aviso na plataforma.</p>
-                    <br>
-                    <p>O uso continuado dos serviços após alterações constitui aceitação dos novos termos. Recomendamos revisar esta página periodicamente.</p>
-                </div>
-            </section>
-        </main>
-    </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Prime Studios. Todos os direitos reservados.</p>
+            <p>Desenvolvido com dedicação e profissionalismo.</p>
+        </footer>
+    </main>
 
     <script>
-        // Smooth scroll para navegação
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
-                // Remove active de todos os links
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                
-                // Adiciona active ao link clicado
-                this.classList.add('active');
-                
-                // Scroll suave para a seção
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                if (targetSection) {
-                    targetSection.scrollIntoView({
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
@@ -381,23 +723,38 @@
             });
         });
 
-        // Atualiza link ativo ao rolar a página
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Active navigation link highlight
         window.addEventListener('scroll', () => {
             let current = '';
-            const sections = document.querySelectorAll('.section');
-            
-            sections.forEach(section => {
+            document.querySelectorAll('section[id]').forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
-                
-                if (scrollY >= (sectionTop - 100)) {
+                if (window.pageYOffset >= sectionTop - 200) {
                     current = section.getAttribute('id');
                 }
             });
 
-            document.querySelectorAll('.nav-link').forEach(link => {
+            document.querySelectorAll('.nav-links a').forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
+                if (link.getAttribute('href').slice(1) === current) {
                     link.classList.add('active');
                 }
             });
